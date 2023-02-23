@@ -1,0 +1,34 @@
+package sarf.noun.trilateral.unaugmented.modifier.activeparticiple;
+
+import java.util.List;
+import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
+import sarf.noun.trilateral.unaugmented.modifier.*;
+import sarf.*;
+
+
+public class ActiveParticipleModifier implements IUnaugmentedTrilateralNounModifier{
+    private Geminator geminator = new Geminator();
+    private Vocalizer vocalizer = new Vocalizer();
+    private Mahmouz mahmouz = new Mahmouz();
+
+    private ActiveParticipleModifier() {
+    }
+
+    private static ActiveParticipleModifier instance = new ActiveParticipleModifier();
+
+    public static ActiveParticipleModifier getInstance() {
+        return instance;
+    }
+
+    public ConjugationResult build(UnaugmentedTrilateralRoot root, int kov, List conjugations, String formula) {
+        ConjugationResult conjResult = new ConjugationResult(kov, root, conjugations, formula);
+        if (geminator.isApplied(conjResult))
+            geminator.apply(conjResult.getFinalResult(), root);
+        vocalizer.apply(conjResult);
+        mahmouz.apply(conjResult);
+        NounLamAlefModifier.getInstance().apply(conjResult);
+        NounSunLamModifier.getInstance().apply(conjResult);
+        return conjResult;
+    }
+
+}

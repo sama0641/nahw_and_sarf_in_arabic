@@ -1,0 +1,35 @@
+package sarf.verb.trilateral.augmented.modifier.hamza.ein.active;
+
+import java.util.*;
+
+import sarf.verb.trilateral.Substitution.*;
+import sarf.verb.trilateral.augmented.modifier.hamza.ein.*;
+
+
+public class PresentMahmouz extends AbstractEinMahmouz {
+
+    private List substitutions = new LinkedList();
+
+    public PresentMahmouz() {
+        substitutions.add(new InfixSubstitution("����","����"));// EX: (�������������)
+        substitutions.add(new InfixSubstitution("����","����"));// EX: (��������)
+        substitutions.add(new SuffixSubstitution("���","���"));// EX: (�� �������)
+        substitutions.add(new SuffixSubstitution("���","���"));// EX: (�� ��������� �� ���������)
+        substitutions.add(new SuffixSubstitution("����","����"));// EX: (�� �������)
+        substitutions.add(new SuffixSubstitution("���","���"));// EX: (�� ������� )
+        substitutions.add(new InfixSubstitution("��","��"));// EX: (������� ������������ �������� ����������� ����������� ���������� ��������)
+        substitutions.add(new InfixSubstitution("���","���"));// EX: (��������� )
+        substitutions.add(new InfixSubstitution("���","���"));// EX: (���������� ���������� )
+        substitutions.add(new InfixSubstitution("����","����"));// EX: (���������� )
+        substitutions.add(new InfixSubstitution("����","����"));// EX: (���������� )
+        substitutions.add(new InfixSubstitution("���","���"));// EX: (����������� �����������)
+        substitutions.add(new InfixSubstitution("����","����"));// EX: (���������� )
+        substitutions.add(new InfixSubstitution("���","���"));// EX: (����������� )
+        substitutions.add(new InfixSubstitution("���","���"));// EX: (��������� )
+    }
+
+
+    public List getSubstitutions() {
+        return substitutions;
+    }
+}
